@@ -12,6 +12,9 @@ OBJS = $(SRCS:.cpp=.o)
 # Project output
 OUT = $(BIN)/$(TARGET)
 
+# Project dependencies
+GLFW_PATH = $(LIB)/glfw
+
 
 # Project building
 CXX = /usr/bin/clang++
@@ -20,12 +23,16 @@ CXXFLAGS  = -std=c++20
 CXXFLAGS += -Wall -Wextra
 
 LDFLAGS   = -lm -lstdc++
+LDFLAGS   = $(GLFW_PATH)/src/libglfw3.a
 
 INCFLAGS  = -iquotesrc
+INCFLAGS  = -I$(GLFW_PATH)/include
 
-all: $(TARGET)
 
-$(TARGET): $(OBJS)
+all: $(TARGET) start
+
+lib:
+	cd $(LIB)/glfw && cmake . && make
 
 $(TARGET): $(OBJS)
 	@mkdir -p $(BIN)
@@ -40,4 +47,4 @@ start:
 clean:
 	@rm -rfv $(OBJS) $(OUT) 
 
-.PHONY: start clean
+.PHONY: start clean lib
