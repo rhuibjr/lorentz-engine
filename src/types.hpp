@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <cstdint>
 
 #define internal static
@@ -20,3 +21,18 @@ typedef int64_t i64;
 
 typedef float f32;
 typedef double f64;
+
+#define _LORENTZ_LOG_PREFIX  "[DEBUG] "
+#define _LORENTZ_LOG_POSTFIX "\n"
+
+#define LORENTZ_COLOUR(value) value / 255.0f
+#define LORENTZ_CLEAR_COLOUR                    \
+    LORENTZ_COLOUR(242), LORENTZ_COLOUR(242), LORENTZ_COLOUR(242), 1.0f
+
+#define LORENTZ_LOG(msg)                        \
+    std::cerr << _LORENTZ_LOG_PREFIX << msg << _LORENTZ_LOG_POSTFIX
+
+#define LORENTZ_EXIT_ON_ERROR(msg)              \
+    do { LORENTZ_LOG(msg);                      \
+         exit(0); } while(0)
+

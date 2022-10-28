@@ -1,6 +1,6 @@
-#include "lorentz.hpp"
-#include "GLFW/glfw3.h"
 #include "graphics/graphics.hpp"
+#include "lorentz.hpp"
+#include "types.hpp"
 
 namespace lorentz
 {
@@ -14,20 +14,19 @@ namespace lorentz
 
     void render()
     {
-        // TODO(rene) empty this while loop from opengl functions.
         while(platform.window->running())
         {
+            glClearColor(LORENTZ_CLEAR_COLOUR);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            glfwSwapBuffers(platform.window->handle);
-
-            glfwPollEvents();
+            platform.window->update();
         }
     }
 
     void destroy()
     {
         platform.window->destroy();
+        delete platform.window; 
     }
 };
 

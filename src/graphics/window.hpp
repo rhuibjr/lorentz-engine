@@ -14,6 +14,7 @@ namespace lorentz::graphics
 
         void create(const char* application_name);
         bool running();
+        void update();
         void destroy();
     };
 };
