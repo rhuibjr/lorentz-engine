@@ -5,14 +5,32 @@
       "-std=c++20",
       "-Wall",
       "-Wextra",
+      "-I./src",
+      "-I./lib/glfw/include/",
+      "-c",
+      "-o",
+      "src/graphics/window.o",
+      "src/graphics/window.cpp"
+    ],
+    "directory": "/home/rhjr/Documents/projects/project-lorentz-engine",
+    "file": "/home/rhjr/Documents/projects/project-lorentz-engine/src/graphics/window.cpp",
+    "output": "/home/rhjr/Documents/projects/project-lorentz-engine/src/graphics/window.o"
+  },
+  {
+    "arguments": [
+      "/usr/lib/llvm-11/bin/clang",
+      "-std=c++20",
+      "-Wall",
+      "-Wextra",
+      "-I./src",
       "-I./lib/glfw/include",
       "-c",
       "-o",
-      "src/main.o",
-      "src/main.cpp"
+      "src/lorentz.o",
+      "src/lorentz.cpp"
     ],
     "directory": "/home/rhjr/Documents/projects/project-lorentz-engine",
-    "file": "/home/rhjr/Documents/projects/project-lorentz-engine/src/main.cpp",
-    "output": "/home/rhjr/Documents/projects/project-lorentz-engine/src/main.o"
+    "file": "/home/rhjr/Documents/projects/project-lorentz-engine/src/lorentz.cpp",
+    "output": "/home/rhjr/Documents/projects/project-lorentz-engine/src/lorentz.o"
   }
 ]

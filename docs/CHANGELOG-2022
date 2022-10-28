@@ -1,5 +1,18 @@
 28-10-2022  Rhuibertsjr  <rhuibertsjr@gmail.com>
 
+        Added: Window manager
+
+        * src/main.cpp: Removed main in favour of lorentz.cpp
+        * src/lorentz.hpp (initialize, render, destroy, main): Added main
+        loop for the lorentz game engine.
+        * src/types.hpp: Moved custom types to types.hpp
+        * src/graphics/graphics.hpp: Added GLFW include
+        * src/graphics/window.hpp (create, running, destory): Added main loop
+        for the window manager.
+        * Makefile: Fixed clangd could not find glfw3
+
+28-10-2022  Rhuibertsjr  <rhuibertsjr@gmail.com>
+
         Fixed: GLFW not compiling
 
         * Makefile: Added X11 libraries

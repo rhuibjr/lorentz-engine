@@ -25,9 +25,8 @@ CXXFLAGS += -Wall -Wextra
 LDFLAGS   = -lm -lstdc++ -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor
 LDFLAGS  += $(GLFW_PATH)/src/libglfw3.a 
 
-INCFLAGS  = -iquotesrc
+INCFLAGS  = -I$(SRC)
 INCFLAGS += -I$(GLFW_PATH)/include
-
 
 all: $(TARGET) start
 
