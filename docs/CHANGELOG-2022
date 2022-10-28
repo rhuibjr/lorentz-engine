@@ -1,0 +1,8 @@
+28-10-2022  Rhuibertsjr  <rhuibertsjr@gmail.com>
+
+        Initial commit for project lorentz
+
+        * docs/CHANGELOG-2022: Added documentation
+        * src/main.cpp: Added "Hello world"
+        * Makefile: Added basic compilations script
+        * .gitignore: Removed binaries and object files
