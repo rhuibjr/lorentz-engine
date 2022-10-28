@@ -1,5 +1,12 @@
 28-10-2022  Rhuibertsjr  <rhuibertsjr@gmail.com>
 
+        Fixed: GLFW not compiling
+
+        * Makefile: Added X11 libraries
+        * .gitignore: Added clangd cache
+
+28-10-2022  Rhuibertsjr  <rhuibertsjr@gmail.com>
+
         Added: GLFW window dependency
 
         * lib/glfw: Added GLFW

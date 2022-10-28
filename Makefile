@@ -22,11 +22,11 @@ CXX = /usr/bin/clang++
 CXXFLAGS  = -std=c++20
 CXXFLAGS += -Wall -Wextra
 
-LDFLAGS   = -lm -lstdc++
-LDFLAGS   = $(GLFW_PATH)/src/libglfw3.a
+LDFLAGS   = -lm -lstdc++ -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor
+LDFLAGS  += $(GLFW_PATH)/src/libglfw3.a 
 
 INCFLAGS  = -iquotesrc
-INCFLAGS  = -I$(GLFW_PATH)/include
+INCFLAGS += -I$(GLFW_PATH)/include
 
 
 all: $(TARGET) start
