@@ -1,20 +1,18 @@
 #pragma once
 
 #include "graphics/graphics.hpp"
-#include "types.hpp"
+#include "utils/utils.hpp"
 
-namespace lorentz::graphics
-{
-    struct Window
-    {
-        i32 width = 1024;
-        i32 height = 720;
+namespace lorentz {
 
-        GLFWwindow* handle;
+struct Window {
+    // TODO(rene) http://clarkkromenaker.com/post/gengine-03-game-loop/
+    GLFWwindow* handle;
 
-        void create(const char* application_name);
-        bool running();
-        void update();
-        void destroy();
-    };
+    void setup(const char* application_name, i32 width, i32 height);
+    bool running();
+    void update();
+    void destroy();
 };
+
+}; // namespace lorentz

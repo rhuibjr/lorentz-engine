@@ -1,36 +1,51 @@
-#include "graphics/graphics.hpp"
+#include "utils/clock.hpp"
+#include "utils/utils.hpp"
+
+#include "graphics/window.hpp"
+
 #include "lorentz.hpp"
-#include "types.hpp"
+#include "platform.hpp"
 
-namespace lorentz
+namespace lorentz {
+
+Platform platform;
+
+void initialize()
 {
-    Platform platform;
+    /* Declaration of platform */
+    platform.clock = new Clock();
+    platform.window = new Window();
 
-    void initialize()
-    {
-        platform.window = new Window();
-        platform.window->create("A Lorentz application");
+    /* Setting up platform components*/
+    platform.window->setup("A Lorentz application", 1024, 720);
+
+    log(INFO, TAG_PLATFORM, "Initializing Lorentz");
+}
+
+void render()
+{
+    log(INFO, TAG_PLATFORM, "Starting the Renderer");
+
+    while (platform.window->running()) {
+        glClearColor(LORENTZ_CLEAR_COLOUR);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        platform.window->update();
     }
+}
 
-    void render()
-    {
-        while(platform.window->running())
-        {
-            glClearColor(LORENTZ_CLEAR_COLOUR);
-            glClear(GL_COLOR_BUFFER_BIT);
+void destroy()
+{
+    log(INFO, TAG_PLATFORM, "Destroying the Renderer");
 
-            platform.window->update();
-        }
-    }
+    platform.window->destroy();
+    delete platform.window;
+    delete platform.clock;
+}
 
-    void destroy()
-    {
-        platform.window->destroy();
-        delete platform.window; 
-    }
-};
+}; // namespace lorentz
 
-int main(UNUSED int argc, UNUSED char *argv[])
+int main(UNUSED int argc, UNUSED char* argv[])
 {
     lorentz::initialize();
     lorentz::render();

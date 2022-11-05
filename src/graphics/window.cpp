@@ -1,36 +1,36 @@
 #include "graphics/window.hpp"
-#include "lorentz.hpp"
-#include "types.hpp"
 
-namespace lorentz::graphics
+namespace lorentz {
+
+void Window::setup(const char* application_name, i32 width, i32 height)
 {
-    void Window::create(const char* application_name)
-    {
-        if (!glfwInit())
-            LORENTZ_EXIT_ON_ERROR("Error initializing GLFW3");
+    if (!glfwInit())
+        log(ERROR, TAG_WINDOW, "Initializing GLFW3");
 
-        this->handle = glfwCreateWindow(
-            width, height, application_name, nullptr, nullptr);
+    this->handle = glfwCreateWindow(width, height, application_name, nullptr, nullptr);
 
-        if (!this->handle)
-            LORENTZ_EXIT_ON_ERROR("Error creating GLFW3 window");
+    if (!this->handle)
+        log(ERROR, TAG_WINDOW, "Creating window");
 
-        glfwMakeContextCurrent(this->handle);
-    }
+    glfwMakeContextCurrent(this->handle);
+    log(INFO, TAG_WINDOW, "Created window");
+}
 
-    void Window::update()
-    {
-        glfwSwapBuffers(this->handle);
-        glfwPollEvents();
-    }
+void Window::update()
+{
+    glfwSwapBuffers(this->handle);
+    glfwPollEvents();
+}
 
-    bool Window::running()
-    {
-        return glfwWindowShouldClose(this->handle) ? false : true ;
-    }
+bool Window::running()
+{
+    return glfwWindowShouldClose(this->handle) ? false : true;
+}
 
-    void Window::destroy()
-    {
-        glfwTerminate();
-    }
-};
+void Window::destroy()
+{
+    log(INFO, TAG_WINDOW, "Closing window");
+    glfwTerminate();
+}
+
+}; // namespace lorentz

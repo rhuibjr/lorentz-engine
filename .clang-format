@@ -1,0 +1,9 @@
+---
+BasedOnStyle: WebKit 
+IndentWidth: '4'
+Language: Cpp
+NamespaceIndentation: Inner
+BreakBeforeBraces: WebKit
+UseTab: Never
+
+...

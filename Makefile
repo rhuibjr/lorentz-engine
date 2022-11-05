@@ -20,7 +20,7 @@ GLFW_PATH = $(LIB)/glfw
 CXX = /usr/bin/clang++
 
 CXXFLAGS  = -std=c++20
-CXXFLAGS += -Wall -Wextra
+CXXFLAGS += -Wall -Wextra -Wc99-designator
 
 LDFLAGS   = -lm -lstdc++ -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor
 LDFLAGS  += $(GLFW_PATH)/src/libglfw3.a 
@@ -35,10 +35,10 @@ lib:
 
 $(TARGET): $(OBJS)
 	@mkdir -p $(BIN)
-	$(CXX) $^ -o $(OUT) $(LDFLAGS) 
+	$(CXX) -o $(OUT) $^ $(LDFLAGS) 
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(INCFLAGS) -c -o $@ $< 
+%.o: %.cpp 
+	$(CXX) -o $@ -c $< $(CXXFLAGS) $(INCFLAGS)
 
 start:
 	@$(OUT)
