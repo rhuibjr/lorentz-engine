@@ -4,4 +4,4 @@
 bin/lorentz
 *.o
 
-compile-commands.json
+compile_commands.json

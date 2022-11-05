@@ -7,3 +7,5 @@ then
 fi
 
 cloc ./src/ 
+
+grep -vwE "(-DBEAR=1)" ./src/compile_commands.json > ./src/compile_commands.json 

@@ -42,6 +42,9 @@ endif
 ifeq ($(SYS), Linux)
 DEFINES += -DSYS_LINUX=1
 endif
+ifdef BEAR
+DEFINES += -DBEAR=1
+endif
 
 LDFLAGS   = -lstdc++ $(FRAMEWORK)
 LDFLAGS  += $(GLFW_PATH)/src/libglfw3.a 
@@ -62,7 +65,7 @@ $(TARGET): $(OBJS)
 
 %.o: %.cpp 
 	@echo "\033[1;33mBuilding target: $@ \033[0m"
-	$(CXX) -o $@ -c $< $(CXXFLAGS) $(INCFLAGS)
+	$(CXX) -o $@ -c $< $(CXXFLAGS) $(INCFLAGS) $(DEFINES)
 	@echo "\033[1;33mFinished building target: $@ \033[0m \n"
 
 start:
