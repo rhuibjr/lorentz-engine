@@ -1,36 +1,46 @@
 #include "graphics/window.hpp"
 
-namespace lorentz {
-
-void Window::setup(const char* application_name, i32 width, i32 height)
+namespace lorentz
 {
-    if (!glfwInit())
-        log(ERROR, TAG_WINDOW, "Initializing GLFW3");
+    void Window::setup(const char *application_name, i32 width, i32 height)
+    {
+        if (!glfwInit())
+            log(ERROR, TAG_WINDOW, "Initializing GLFW3");
 
-    this->handle = glfwCreateWindow(width, height, application_name, nullptr, nullptr);
+#if SYS_DARWIN
+        glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
 
-    if (!this->handle)
-        log(ERROR, TAG_WINDOW, "Creating window");
+        this->handle =
+            glfwCreateWindow(width, height, application_name, nullptr, nullptr);
 
-    glfwMakeContextCurrent(this->handle);
-    log(INFO, TAG_WINDOW, "Created window");
-}
+        if (!this->handle)
+            log(ERROR, TAG_WINDOW, "Creating window");
 
-void Window::update()
-{
-    glfwSwapBuffers(this->handle);
-    glfwPollEvents();
-}
+        glfwMakeContextCurrent(this->handle);
 
-bool Window::running()
-{
-    return glfwWindowShouldClose(this->handle) ? false : true;
-}
+        log(INFO, TAG_WINDOW, "Created window");
+    }
 
-void Window::destroy()
-{
-    log(INFO, TAG_WINDOW, "Closing window");
-    glfwTerminate();
-}
+    void Window::update()
+    {
+        glfwSwapBuffers(this->handle);
+        glfwPollEvents();
+    }
+
+    bool Window::running()
+    {
+        return glfwWindowShouldClose(this->handle) ? false : true;
+    }
+
+    void Window::destroy()
+    {
+        log(INFO, TAG_WINDOW, "Closing window");
+        glfwTerminate();
+    }
 
 }; // namespace lorentz

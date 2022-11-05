@@ -1,7 +1,11 @@
 #!/bin/bash
 
-FILE_LIST="$(find "./src/" | grep -E ".*(\.cpp|\.hpp)$")"
+if ! command -v clang-format &> /dev/null
+then
+    echo "clang-format could not be found"
+    exit
+fi
 
-echo -e "Files found to format = \n\"\"\"\n$FILE_LIST\n\"\"\""
+FILE_LIST="$(find "./src" | grep -E ".*(\.cpp|\.hpp)$")"
 
 clang-format --verbose -i --style=file $FILE_LIST

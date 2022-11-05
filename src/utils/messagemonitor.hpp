@@ -1,26 +1,29 @@
 #pragma once
 
-namespace lorentz {
-enum table_type {
-    ERROR = 0x00,
-    WARNING,
-    INFO,
-};
+namespace lorentz
+{
 
-enum table_tag {
-    TAG_NONE = 0x00,
-    TAG_ASSERT,
-    TAG_PLATFORM,
-    TAG_WINDOW,
-};
+    enum table_type {
+        ERROR = 0x00,
+        WARNING,
+        INFO,
+    };
 
-struct MessageMonitor {
-    static void setup();
+    enum table_tag {
+        TAG_NONE = 0x00,
+        TAG_ASSERT,
+        TAG_PLATFORM,
+        TAG_WINDOW,
+    };
 
-    static void
-    log(table_type debug_flag, table_tag index, const char* __restrict format,
-        ...);
-};
+    struct MessageMonitor {
+        static void setup();
 
-constexpr auto log = &MessageMonitor::log;
+        static void
+        log(table_type debug_flag, table_tag index,
+            const char *__restrict format, ...);
+    };
+
+    constexpr auto log = &MessageMonitor::log;
+
 }; // namespace lorentz
