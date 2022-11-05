@@ -1,5 +1,7 @@
 .cache/
 .ccls-cache/
-bin/lorentz
 
+bin/lorentz
 *.o
+
+compile-commands.json
