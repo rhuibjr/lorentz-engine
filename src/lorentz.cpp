@@ -1,14 +1,16 @@
-#include "utils/clock.hpp"
-#include "utils/utils.hpp"
+/* Copyright (C) 2022 René Huiberts - All Rights Reserved */
 
+/* Lorentz platform dependencies */
 #include "graphics/window.hpp"
+#include "utils/clock.hpp"
 
+/* Lorentz platform */
 #include "lorentz.hpp"
-#include "platform.hpp"
+
+#include "graphics/program.hpp"
 
 namespace lorentz
 {
-
     Platform platform;
 
     void initialize()
@@ -17,10 +19,10 @@ namespace lorentz
         platform.clock = new Clock();
         platform.window = new Window();
 
-        /* Setting up platform components*/
-        platform.window->setup("A Lorentz application", 1024, 720);
+        log(INFO, TAG_PLATFORM, "Initializing Lorentz"); // Uses platform.clock
 
-        log(INFO, TAG_PLATFORM, "Initializing Lorentz");
+        /* Setting up platform components */
+        platform.window->setup("A Lorentz application", 1024, 720);
     }
 
     void render()
@@ -38,10 +40,7 @@ namespace lorentz
     void destroy()
     {
         log(INFO, TAG_PLATFORM, "Destroying the Renderer");
-
         platform.window->destroy();
-        delete platform.window;
-        delete platform.clock;
     }
 
 }; // namespace lorentz

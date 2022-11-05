@@ -45,6 +45,9 @@ endif
 ifdef BEAR
 DEFINES += -DBEAR=1
 endif
+ifdef NDEBUG 
+DEFINES += -DNDEBUG=1
+endif
 
 LDFLAGS   = -lstdc++ $(FRAMEWORK)
 LDFLAGS  += $(GLFW_PATH)/src/libglfw3.a 

@@ -2,12 +2,14 @@
 
 #include <cstdarg>
 #include <cstdint>
+#include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "utils/messagemonitor.hpp"
 
-#define internal static
-#define local_persist static
+#define internal        static
+#define local_persist   static
 #define global_variable static
 
 #define UNUSED __attribute__((unused))
@@ -25,3 +27,20 @@ typedef int64_t i64;
 
 typedef float f32;
 typedef double f64;
+
+#define LORENTZ_COLOUR(value) value / 255.0f
+#define LORENTZ_CLEAR_COLOUR                                                        \
+    LORENTZ_COLOUR(242), LORENTZ_COLOUR(242), LORENTZ_COLOUR(242), 1.0f
+
+// TODO Change location to an platform header
+#if NDEBUG
+#define ASSERT(expression)
+#else
+#define ASSERT(expression)                                                          \
+    do {                                                                            \
+        if (!(expression)) {                                                        \
+            log(ERROR, TAG_ASSERT, "/ " #expression " / \n ");                      \
+            __builtin_trap();                                                       \
+        }                                                                           \
+    } while (0)
+#endif

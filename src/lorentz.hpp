@@ -1,5 +1,7 @@
 #pragma once
 
+#include "lorentz-opts.hpp"
+
 /* Copyright (C) 2022 René Huiberts - All Rights Reserved
    You may NOT modify, copy, republish, upload, post, transmit, or distribute,
    in any manner, the material in this project including text, graphics, code

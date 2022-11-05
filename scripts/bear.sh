@@ -15,10 +15,10 @@ fi
 make clean
 echo ''
 
-rm -rf compile_commands.json
-
 bear -- make BEAR=1
 
+# DARWIN = sed -i [POSTFIX]
+# GNU = sed -i[POSTFIX] no space! 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' '/\"-DBEAR=1\",/d' compile_commands.json
     exit
