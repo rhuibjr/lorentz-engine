@@ -15,6 +15,8 @@ OUT = $(BIN)/$(TARGET)
 
 # Project dependencies
 GLFW_PATH = $(LIB)/glfw
+GLAD_PATH = $(LIB)/glad
+STB_PATH  = $(LIB)/stb
 
 # Project building
 CXX = clang++
@@ -54,6 +56,8 @@ LDFLAGS  += $(GLFW_PATH)/src/libglfw3.a
 
 INCFLAGS  = -I$(SRC)
 INCFLAGS += -I$(GLFW_PATH)/include
+INCFLAGS += -I$(GLAD_PATH)/include 
+INCFLAGS += -I$(STB_PATH)
 
 all: $(TARGET) start
 

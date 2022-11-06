@@ -13,7 +13,8 @@ namespace lorentz
         [TAG_ASSERT] = "Assertion failed",
         [TAG_PLATFORM] = "Platform",
         [TAG_WINDOW] = "Window",
-        [TAG_SHADERS] = "Shader"};
+        [TAG_SHADERS] = "Shader",
+        [TAG_TEXTURE] = "Texture"};
 
 #define MESSAGE_MONITOR_MESSAGE_SIZE 1024
 

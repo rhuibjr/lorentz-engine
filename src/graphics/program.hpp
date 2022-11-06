@@ -69,6 +69,7 @@ namespace lorentz::graphics
 
         /*
          * @brief: Frees all allocated memory of the program container.
+         * @return: (void)
          */
         void destroy();
 

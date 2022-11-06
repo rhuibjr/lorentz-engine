@@ -20,6 +20,7 @@ namespace lorentz
         TAG_PLATFORM,
         TAG_WINDOW,
         TAG_SHADERS,
+        TAG_TEXTURE
     };
 
     /*

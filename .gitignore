@@ -1,5 +1,6 @@
 .cache/
 .ccls-cache/
+.DS_Store
 
 bin/lorentz
 *.o
