@@ -22,6 +22,7 @@ namespace lorentz
             log(ERROR, TAG_WINDOW, "Creating window");
 
         glfwMakeContextCurrent(this->handle);
+        gladLoadGL(); // Call before using GL functions
 
         log(INFO, TAG_WINDOW, "Created window");
     }
