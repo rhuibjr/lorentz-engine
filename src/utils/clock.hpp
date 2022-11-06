@@ -7,6 +7,7 @@ namespace lorentz
 {
     struct Clock {
         using steady_clock = std::chrono::steady_clock;
+        using milliseconds = std::chrono::milliseconds;
         using seconds = std::chrono::seconds;
 
         Clock();
@@ -18,11 +19,11 @@ namespace lorentz
 
         /*
          * @brief:  Timer measures time elapsed since Clock has been
-         * initialized.
+         *          initialized.
          * @return: The time between the initialization of the Clock manager
          *          and the call of this function.
          */
-        seconds getTime();
+        u64 getTime();
     };
 
 }; // namespace lorentz

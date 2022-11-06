@@ -6,9 +6,16 @@ namespace lorentz
 
 #define CLK_SWITCH_METRIC 1000000
 
-    Clock::seconds Clock::getTime()
+    u64 Clock::getTime()
     {
-        return (seconds)duration_cast<seconds>(steady_clock::now() - start).count();
+        auto time = duration_cast<milliseconds>(steady_clock::now() - start).count();
+
+        if (time < CLK_SWITCH_METRIC)
+            return (u64) time;
+
+        time = duration_cast<seconds>(steady_clock::now() - start).count();
+
+        return (u64) time;
     }
 
 }; // namespace lorentz

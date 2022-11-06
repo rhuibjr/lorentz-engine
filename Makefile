@@ -14,10 +14,11 @@ SYS = $(shell uname)
 OUT = $(BIN)/$(TARGET)
 
 # Project dependencies
-GLFW_PATH = $(LIB)/glfw # Static library
-GLAD_PATH = $(LIB)/glad # Compile
-GLM_PATH = $(LIB)/glm   # Header only
-STB_PATH = $(LIB)/stb  # Header only
+GLFW_PATH = $(LIB)/glfw
+GLAD_PATH = $(LIB)/glad
+## Header only
+GLM_PATH = $(LIB)/glm 
+STB_PATH = $(LIB)/stb
 
 # Project building
 CC  = clang

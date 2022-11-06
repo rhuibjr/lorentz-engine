@@ -7,6 +7,7 @@
 /* Lorentz platform */
 #include "lorentz.hpp"
 
+#include "graphics/mesh.hpp"
 #include "graphics/program.hpp"
 
 namespace lorentz
@@ -29,10 +30,23 @@ namespace lorentz
     {
         log(INFO, TAG_PLATFORM, "Starting the Renderer");
 
+        graphics::Mesh triangle(
+            {{-0.5f, -0.5f, 0.0f},
+             {0.5f, -0.5f, 0.0f},
+             {0.0f, 0.5f, 0.0f}});
+
+        graphics::Program shader({
+            "./resources/shaders/vertex_shaders/vertex_shader.glsl",
+            "./resources/shaders/fragment_shaders/fragment_shader.glsl"
+        });
+
         while (platform.window->running()) {
             glClearColor(LORENTZ_CLEAR_COLOUR);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            shader.use();
+            triangle.use();
+            
             platform.window->update();
         }
     }
