@@ -4,6 +4,3 @@
 [submodule "libs/stb"]
 	path = libs/stb
 	url = git@github.com:nothings/stb.git
-[submodule "libs/glad"]
-	path = libs/glad
-	url = git@github.com:Dav1dde/glad.git
