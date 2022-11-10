@@ -12,9 +12,14 @@ namespace lorentz
      */
     struct Window {
         /*
-         * @brief:  Window handler
+         * @brief: Window handler
          */
         GLFWwindow *handle;
+
+        /*
+         * @brief: Window title / application title. 
+         */
+        std::string title;
 
         /*
          * @brief:  Window manager handles the window and keyboard events. It
@@ -24,7 +29,7 @@ namespace lorentz
          *          - height[in]: is the height of the window in pixels.
          * @return: (void)
          */
-        void setup(const char *application_name, i32 width, i32 height);
+        void setup(const std::string application_name, i32 width, i32 height);
 
         /*
          * @brief:  Checks if the window should continue to run or not.
@@ -40,7 +45,7 @@ namespace lorentz
          *            - http://clarkkromenaker.com/post/gengine-03-game-loop/
          * @return: (void)
          */
-        void update();
+        void update(uint16_t frames_per_second);
 
         /*
          * @brief:  Frees up all allocated memory from the window manager.
