@@ -1,0 +1,7 @@
+16-11-2022  rhuibertsjr  <rhuibertsjr@gmail.com>
+
+        Added: GPLv3 license
+
+        * LICENSE: Added GPLv3 license
+        * lorentz.cpp, lorentz.hpp, lorentz-debug.hpp, lorentz-opts.hpp:
+        Added GPLv3 copyright notices.

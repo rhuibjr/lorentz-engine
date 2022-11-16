@@ -2,12 +2,24 @@
 
 #include "lorentz-opts.hpp"
 
-/* Copyright (C) 2022 René Huiberts - All Rights Reserved
-   You may NOT modify, copy, republish, upload, post, transmit, or distribute,
-   in any manner, the material in this project including text, graphics, code
-   and/or software. You must retain all copyright and other proprietary
-   notices contained in the original material on any copy you make of the
-   material. */
+/* The Lorentz engine, is an open-ended graphics engine used for educational purposes.
+   Copyright (C) 2022  rhuibertsjr 
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+   THIS FILE 
+*/
 namespace lorentz
 {
     struct Window;
