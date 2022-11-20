@@ -14,9 +14,7 @@ namespace lorentz::graphics
         glBindBuffer(GL_ARRAY_BUFFER, this->handle);
     }
 
-    void VBO::destroy()
-    {
-    }
+    void VBO::destroy() {}
 
     VAO::VAO()
     {
@@ -28,26 +26,24 @@ namespace lorentz::graphics
         glBindVertexArray(this->handle);
     }
 
-    void VAO::destroy()
-    {
-    }
+    void VAO::destroy() {}
 
     /* Mesh */
     void Mesh::create()
     {
         this->vbo = VBO();
         this->vao = VAO();
-        
+
         this->vbo.bind();
         this->vao.bind();
 
         glBufferData(
             GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0],
             GL_STATIC_DRAW);
-        
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);  
 
+        glVertexAttribPointer(
+            0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
+        glEnableVertexAttribArray(0);
     }
 
     void Mesh::use()
@@ -56,9 +52,6 @@ namespace lorentz::graphics
         glDrawArrays(GL_TRIANGLES, 0, 3);
     }
 
-    void Mesh::destroy()
-    {
-        
-    }
-    
+    void Mesh::destroy() {}
+
 } // namespace lorentz::graphics

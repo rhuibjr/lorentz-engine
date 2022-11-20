@@ -26,7 +26,10 @@ namespace lorentz::graphics
         this->create();
     }
 
-    Texture::~Texture() { this->destroy(); }
+    Texture::~Texture()
+    {
+        this->destroy();
+    }
 
 #define LRTZ_TEXTURE_GENERATE_AMOUNT 1
 #define LRTZ_TEXTURE_LEVEL_OF_DETAIL 0
@@ -44,7 +47,8 @@ namespace lorentz::graphics
 
         glTexImage2D(
             GL_TEXTURE_2D, LRTZ_TEXTURE_LEVEL_OF_DETAIL, GL_RGB,
-            this->texture_data.width, this->texture_data.height, 0, // Must stay zero
+            this->texture_data.width, this->texture_data.height,
+            0, // Must stay zero
             GL_RGB, GL_UNSIGNED_BYTE, this->texture_raw_data);
 
         glGenerateMipmap(GL_TEXTURE_2D);
@@ -57,6 +61,9 @@ namespace lorentz::graphics
         glDeleteTextures(LRTZ_TEXTURE_GENERATE_AMOUNT, &this->texture);
     }
 
-    void Texture::use() { glBindTexture(GL_TEXTURE_2D, this->texture); }
+    void Texture::use()
+    {
+        glBindTexture(GL_TEXTURE_2D, this->texture);
+    }
 
 }; // namespace lorentz::graphics

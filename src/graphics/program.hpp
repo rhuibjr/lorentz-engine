@@ -13,7 +13,8 @@ namespace lorentz::graphics
         typedef u32 shader_t;
 
         /*
-         * @brief: Shader container can compile shaders from their relative path.
+         * @brief: Shader container can compile shaders from their relative
+         * path.
          */
         struct Shader {
             /*
@@ -29,8 +30,8 @@ namespace lorentz::graphics
     } // namespace
 
     /*
-     * @brief: Program container which holds a vertex and a fragment shader, links
-     *         them and controls their livespan.
+     * @brief: Program container which holds a vertex and a fragment shader,
+     * links them and controls their livespan.
      */
     struct Program {
         /*
@@ -49,9 +50,10 @@ namespace lorentz::graphics
         shader_t fragment_shader;
 
         /*
-         * @brief:  Compiles the two shaders given, and calls the create() function.
-         * @params: - shaders[2][in]: First item leads to the vertex shader path,
-         *                            second items leads to fragment shader path.
+         * @brief:  Compiles the two shaders given, and calls the create()
+         * function.
+         * @params: - shaders[2][in]: First item leads to the vertex shader
+         * path, second items leads to fragment shader path.
          * @return: (void)
          */
         Program(std::array<std::string, 2> shaders);

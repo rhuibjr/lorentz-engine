@@ -6,47 +6,44 @@
 namespace lorentz::graphics
 {
     /* File private */
-        typedef u32 vbo_t, vao_t;
+    typedef u32 vbo_t, vao_t;
 
-        struct VBO
-        {
-            vbo_t handle;
+    struct VBO {
+        vbo_t handle;
 
-            VBO();
-            
-            void bind();
-            void destroy();
-        };
+        VBO();
 
-        struct VAO 
-        {
-            vao_t handle;
+        void bind();
+        void destroy();
+    };
 
-            VAO();
+    struct VAO {
+        vao_t handle;
 
-            void bind();
-            void destroy();
-        };
+        VAO();
 
-    struct Mesh
-    {
+        void bind();
+        void destroy();
+    };
+
+    struct Mesh {
         std::vector<glm::vec3> vertices;
         std::vector<u32> triangles;
 
         VBO vbo;
         VAO vao;
 
-        Mesh(std::vector<glm::vec3> vertices)
-            : vertices(vertices) { create(); }
+        Mesh(std::vector<glm::vec3> vertices) : vertices(vertices)
+        {
+            create();
+        }
 
         void use();
 
         void destroy();
 
-      private: 
-
+      private:
         void create();
-
     };
-    
+
 } // namespace lorentz::graphics

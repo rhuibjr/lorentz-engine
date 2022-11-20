@@ -2,7 +2,8 @@
 
 namespace lorentz
 {
-    void Window::setup(const std::string application_name, i32 width, i32 height)
+    void
+    Window::setup(const std::string application_name, i32 width, i32 height)
     {
         if (!glfwInit())
             log(ERROR, TAG_WINDOW, "Initializing GLFW3");
@@ -17,8 +18,8 @@ namespace lorentz
 
         this->title = application_name;
 
-        this->handle =
-            glfwCreateWindow(width, height, this->title.c_str(), nullptr, nullptr);
+        this->handle = glfwCreateWindow(
+            width, height, this->title.c_str(), nullptr, nullptr);
 
         if (!this->handle)
             log(ERROR, TAG_WINDOW, "Creating window");
@@ -33,7 +34,7 @@ namespace lorentz
     {
         std::string new_title = "[FPS:  ] ";
         new_title.replace(6, 1, std::to_string(fps)).append(this->title);
-        
+
         glfwSetWindowTitle(this->handle, new_title.c_str());
         glfwSwapBuffers(this->handle);
         glfwPollEvents();

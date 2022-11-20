@@ -55,13 +55,17 @@ namespace lorentz::graphics
     {
         /* Compilation */
         this->vertex_shader = Shader::compile(shaders.at(0), GL_VERTEX_SHADER);
-        this->fragment_shader = Shader::compile(shaders.at(1), GL_FRAGMENT_SHADER);
+        this->fragment_shader =
+            Shader::compile(shaders.at(1), GL_FRAGMENT_SHADER);
 
         /* Linking */
         this->create();
     }
 
-    Program::~Program() { this->destroy(); }
+    Program::~Program()
+    {
+        this->destroy();
+    }
 
     void Program::create()
     {
@@ -85,7 +89,8 @@ namespace lorentz::graphics
         glGetProgramiv(this->program, GL_LINK_STATUS, &linked_succesfully);
 
         if (!linked_succesfully)
-            log(ERROR, TAG_SHADERS, "Cannot link the vertex and fragment shaders.");
+            log(ERROR, TAG_SHADERS,
+                "Cannot link the vertex and fragment shaders.");
     }
 
     void Program::destroy()
@@ -95,6 +100,9 @@ namespace lorentz::graphics
         glDeleteShader(this->fragment_shader);
     }
 
-    void Program::use() { glUseProgram(this->program); }
+    void Program::use()
+    {
+        glUseProgram(this->program);
+    }
 
 } // namespace lorentz::graphics

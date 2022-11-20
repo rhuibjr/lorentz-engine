@@ -1,5 +1,5 @@
-/* The Lorentz engine, is an open-ended graphics engine used for educational purposes.
-   Copyright (C) 2022  rhuibertsjr 
+/* The Lorentz engine, is an open-ended graphics engine used for educational
+   purposes. Copyright (C) 2022  rhuibertsjr
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -45,14 +45,11 @@ namespace lorentz
         log(INFO, TAG_PLATFORM, "Starting the Renderer");
 
         graphics::Mesh triangle(
-            {{-0.5f, -0.5f, 0.0f},
-             {0.5f, -0.5f, 0.0f},
-             {0.0f, 0.5f, 0.0f}});
+            {{-0.5f, -0.5f, 0.0f}, {0.5f, -0.5f, 0.0f}, {0.0f, 0.5f, 0.0f}});
 
-        graphics::Program shader({
-            "./resources/shaders/vertex_shaders/vertex_shader.glsl",
-            "./resources/shaders/fragment_shaders/fragment_shader.glsl"
-        });
+        graphics::Program shader(
+            {"./resources/shaders/vertex_shaders/vertex_shader.glsl",
+             "./resources/shaders/fragment_shaders/fragment_shader.glsl"});
 
         UNUSED f32 time = 0.0, accumulator = 0.0, fixed_delta_time = 0.1;
         uint16_t frames = 0;
@@ -66,11 +63,10 @@ namespace lorentz
 
             accumulator += frame_time;
 
-            while(accumulator >= fixed_delta_time)
-            {
+            while (accumulator >= fixed_delta_time) {
                 accumulator -= fixed_delta_time;
                 time += fixed_delta_time;
-                
+
                 frames++;
             }
 
@@ -82,7 +78,6 @@ namespace lorentz
 
             platform.window->update(frames);
             frames = 0;
-
         }
     }
 

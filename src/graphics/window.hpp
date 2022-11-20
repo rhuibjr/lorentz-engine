@@ -17,7 +17,7 @@ namespace lorentz
         GLFWwindow *handle;
 
         /*
-         * @brief: Window title / application title. 
+         * @brief: Window title / application title.
          */
         std::string title;
 

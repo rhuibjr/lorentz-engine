@@ -2,8 +2,8 @@
 
 #include "lorentz-opts.hpp"
 
-/* The Lorentz engine, is an open-ended graphics engine used for educational purposes.
-   Copyright (C) 2022  rhuibertsjr 
+/* The Lorentz engine, is an open-ended graphics engine used for educational
+   purposes. Copyright (C) 2022  rhuibertsjr
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-   THIS FILE 
+   THIS FILE
 */
 namespace lorentz
 {

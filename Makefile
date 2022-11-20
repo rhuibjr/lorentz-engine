@@ -24,7 +24,7 @@ STB_PATH = $(LIB)/stb
 CC  = clang
 CXX = clang++
 
-CXXFLAGS  = -std=c++20 -stdlib=libc++
+CXXFLAGS  = -std=c++20
 CXXFLAGS += -Wall -Wextra -Wpedantic -Wno-c99-extensions
 CXXFLAGS += -O2 -g
 ifeq ($(SYS), Darwin)

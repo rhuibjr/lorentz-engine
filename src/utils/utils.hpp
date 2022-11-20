@@ -1,10 +1,12 @@
 #pragma once
 
+#include <array>
 #include <cstdarg>
 #include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 #include "utils/messagemonitor.hpp"
 
@@ -29,5 +31,5 @@ typedef float f32;
 typedef double f64;
 
 #define LORENTZ_COLOUR(value) value / 255.0f
-#define LORENTZ_CLEAR_COLOUR                                                        \
+#define LORENTZ_CLEAR_COLOUR                                                   \
     LORENTZ_COLOUR(242), LORENTZ_COLOUR(242), LORENTZ_COLOUR(242), 1.0f
